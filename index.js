@@ -1,7 +1,9 @@
 const express = require('express');
 
 const app = express();
-require('dotenv').config()
+require('dotenv').config();
+
+app.use(express.static('public/'));
 //Midd-wares
 
 //Routes

@@ -10,3 +10,9 @@
     //for developement
     npm run dev
     ```
+
+## TODO LIST
+ - [ ] Build a Restfull API for secure API key.
+ - [ ] Get instagram posts informations.
+ - [ ] Build a Vue app for front-end.
+ - [ ]  ... 

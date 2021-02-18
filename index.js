@@ -31,8 +31,12 @@ app.get('/api/auth/', async (req,res) => {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }
-        const result = await axios.post('https://api.instagram.com/oauth/access_token/', params, config);
-        res.send(result);
+        try{    
+            const result = await axios.post('https://api.instagram.com/oauth/access_token/', params, config);
+            res.send(result);
+        }catch(err){
+            res.send(err);
+        }
     }
     const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${FB_APP_ID}&redirect_uri=${APP_AUTH_URL}&scope=user_profile,user_media&response_type=code`;
     res.redirect(authUrl);

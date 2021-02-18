@@ -9,7 +9,7 @@ This app allows to you create IFrames with your Instagram account.
 
 1. Clone the project with: `$ git clone https://github.com/kaanersoy/vue-instagram-iframe-creator.git`
 2. Run the server like:
-```bash
+```shell
 //for deploy
 npm run start 
 //for developement

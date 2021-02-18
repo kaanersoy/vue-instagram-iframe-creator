@@ -12,8 +12,8 @@ app.get('/api/',(req,res)  => {
 })
 
 app.get('/api/auth/', async (req,res) => {
-    if(req.params.code){
-        res.send(req.query.code);
+    if(req.query("code")){
+        res.send(req.query("code"));
     }
     if(!process.env.FB_USER_AUTH_SECRET){
         res.sendStatus(404);   

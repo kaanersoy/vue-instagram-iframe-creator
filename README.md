@@ -1,5 +1,10 @@
 # Instagram IFrame Creator
 
+This app allows to you create IFrames with your Instagram account.
+- Just sign in with your instagram and select your style!
+- Get the code and import your HTML template!
+- Voila🎉, your Instagram Iframe is ready to use!
+> (in developement)
 ## Install
 
 1. Clone the project with: `$ git clone https://github.com/kaanersoy/vue-instagram-iframe-creator.git`

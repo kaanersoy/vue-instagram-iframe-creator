@@ -1,5 +1,7 @@
 const express = require('express');
 const axios = require('axios');
+const { redirect } = require('statuses');
+const { resolveSoa } = require('dns');
 const app = express();
 require('dotenv').config();
 
@@ -11,21 +13,30 @@ app.get('/api/',(req,res)  => {
     res.send('HI FROM API!');
 })
 
+// auth Query
+// 
+
+
 app.get('/api/auth/', async (req,res) => {
+    const {FB_APP_ID, FACE_API_SECRET_KEY, APP_AUTH_URL} = process.env;
     if(req.query.code){
-        res.send(req.query.code);
+        const params = new URLSearchParams();
+        params.append('client_id', FB_APP_ID);
+        params.append('client_secret', FACE_API_SECRET_KEY);
+        params.append('grant_type', 'authorization_code');
+        params.append('redirect_uri', 'https://whispering-anchorage-68692.herokuapp.com/api/auth/');
+        params.append('code', req.query.code);
+        const config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+        const result = await axios.post('https://api.instagram.com/oauth/access_token/', params, config);
+        res.send(result);
     }
-    if(!process.env.FB_USER_AUTH_SECRET){
-        res.sendStatus(404);   
-    }
-    try{
-        const result = await axios.get(`https://graph.instagram.com/me?fields=username&access_token=${process.env.FB_USER_AUTH_SECRET}`);
-        res.json(result.data);
-    }
-    catch(err){
-        console.error(err)
-        res.sendStatus(301);
-    }
+    const authUrl = `https://api.instagram.com/oauth/authorize?
+    client_id=${FB_APP_ID}&redirect_uri=${APP_AUTH_URL}&scope=user_profile,user_media&response_type=code`;
+    res.redirect(authUrl);
 })
 
 app.get('/*', (req,res) => {

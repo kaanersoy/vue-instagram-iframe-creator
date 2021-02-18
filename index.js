@@ -1,13 +1,14 @@
 const express = require('express');
 const axios = require('axios');
-const { redirect } = require('statuses');
-const { resolveSoa } = require('dns');
+const helmet = require('helmet');
 const app = express();
 require('dotenv').config();
 
 //Midd-wares
 app.use(express.static('public/'));
-
+app.use(helmet({
+    contentSecurityPolicy: false
+}))
 //Routes
 app.get('/api/',(req,res)  => {
     res.send('HI FROM API!');

@@ -14,6 +14,9 @@ npm run dev
 
 ## TODO LIST
  - [x] Build a Restfull API for secure API key.
+ - [x] Deploy in Heroku.
+ - [ ] Get Facebook API Key.
+ - [ ] Get a `Instagram Basic Display` app and secret key.
  - [ ] Get instagram posts informations.
  - [ ] Build a Vue app for front-end.
  - [ ]  ... 

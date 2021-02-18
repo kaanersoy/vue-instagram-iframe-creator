@@ -11,6 +11,13 @@ app.get('/api/',(req,res)  => {
     res.send('HI FROM API!');
 })
 
+app.get('/api/auth/', (req,res) => {
+    if(req.body.code){
+        res.redirect('/');
+    }else{
+        res.send(400);
+    }
+})
 
 app.get('/*', (req,res) => {
     res.sendStatus(404);

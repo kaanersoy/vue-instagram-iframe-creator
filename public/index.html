@@ -22,6 +22,10 @@
     <h1>Basic HTML page for deploying something</h1>
     <p>YEYYY💖😂</p>
 
+    <a href="https://www.instagram.com/oauth/authorize?client_id=123983209565950&redirect_uri=https://whispering-anchorage-68692.herokuapp.com/&scope=user_profile&response_type=code">
+        Login With Instagram
+    </a>
+
     <div
         class="fb-like"
         data-share="true"
@@ -37,9 +41,6 @@
             version    : 'v9.0'
           });
           FB.AppEvents.logPageView();
-          FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
         };
         
       

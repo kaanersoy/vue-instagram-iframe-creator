@@ -33,7 +33,7 @@ app.get('/api/auth/', async (req,res) => {
         }
         try{    
             const result = await axios.post('https://api.instagram.com/oauth/access_token/', params, config);
-            res.send(result);
+            res.send({result, result: 'Result is that!'});
         }catch(err){
             res.send(err);
         }

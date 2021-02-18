@@ -13,10 +13,6 @@ app.get('/api/',(req,res)  => {
     res.send('HI FROM API!');
 })
 
-// auth Query
-// 
-
-
 app.get('/api/auth/', async (req,res) => {
     const {FB_APP_ID, FB_API_SECRET_KEY, APP_AUTH_URL} = process.env;
     if(req.query.code){
@@ -24,7 +20,7 @@ app.get('/api/auth/', async (req,res) => {
         params.append('client_id', FB_APP_ID);
         params.append('client_secret', FB_API_SECRET_KEY);
         params.append('grant_type', 'authorization_code');
-        params.append('redirect_uri', 'https://whispering-anchorage-68692.herokuapp.com/api/auth/');
+        params.append('redirect_uri', APP_AUTH_URL);
         params.append('code', req.query.code);
         const config = {
             headers: {
@@ -33,7 +29,10 @@ app.get('/api/auth/', async (req,res) => {
         }
         try{    
             const result = await axios.post('https://api.instagram.com/oauth/access_token/', params, config);
-            res.send({data: result.data, result: 'Result is that!'});
+            res.send({
+                data: result.data,
+                result: 'Result is that!'
+            });
         }catch(err){
             res.send(err);
         }

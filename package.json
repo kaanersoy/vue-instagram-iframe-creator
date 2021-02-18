@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "build": "npm install && node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "pstg": "git push origin main && git push heroku master"
   },
   "repository": {
     "type": "git",

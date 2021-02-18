@@ -15,7 +15,7 @@ app.get('/*', (req,res) => {
 })
 
 //Process
-const PORT = process.env.PROD_PORT || 3000;
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server up and running on ->', `http://localhost:${PORT}`);
 })

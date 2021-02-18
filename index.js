@@ -1,7 +1,7 @@
 const express = require('express');
+
 const app = express();
-
-
+require('dotenv').config()
 //Midd-wares
 
 //Routes
@@ -10,8 +10,12 @@ app.get('/api/',(req,res)  => {
 })
 
 
+app.get('/*', (req,res) => {
+    res.sendStatus(404);
+})
+
 //Process
 const PORT = process.env.PROD_PORT || 3000;
 app.listen(PORT, () => {
-    console.log('Server up and running on ->', PORT);
+    console.log('Server up and running on ->', `http://localhost:${PORT}`);
 })

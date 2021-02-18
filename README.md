@@ -10,7 +10,7 @@ npm run start
 //for developement
 npm run dev
 ```
-YEY🤘
+> HERE WE GO!🤘
 
 ## TODO LIST
  - [x] Build a Restfull API for secure API key.

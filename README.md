@@ -15,6 +15,7 @@ npm run dev
 ## TODO LIST
  - [x] Build a Restfull API for secure API key.
  - [x] Deploy in Heroku.
+ - [x] Add a HTML page for pretty little cute visualizations.  [(Visit!)](https://whispering-anchorage-68692.herokuapp.com/)
  - [ ] Get Facebook API Key.
  - [ ] Get a `Instagram Basic Display` app and secret key.
  - [ ] Get instagram posts informations.
